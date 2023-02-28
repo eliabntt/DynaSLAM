@@ -2,6 +2,13 @@
 
 [[Project]](https://bertabescos.github.io/DynaSLAM/)   [[arXiv]](https://arxiv.org/abs/1806.05620)   [[Journal]](https://ieeexplore.ieee.org/document/8421015)
 
+
+### This is a fork made to work with Python3 and Detectron2/MaskRCNN models
+#### In this regard please change the paths that you can find [here](https://github.com/eliabntt/DynaSLAM/blob/master/CMakeLists.txt#L77), [here](https://github.com/eliabntt/DynaSLAM/blob/master/CMakeLists.txt#L84), [here](https://github.com/eliabntt/DynaSLAM/blob/master/CMakeLists.txt#L122), [here](https://github.com/eliabntt/DynaSLAM/blob/master/Thirdparty/DBoW2/CMakeLists.txt#L27) to your own paths.
+#### Note that we tested this with python3.8 and opencv 2.4.1. Please follow the instructions in the [GRADE_tools](https://github.com/robot-perception-group/GRADE_tools/blob/main/evaluation/DYNASLAM.md) repository for additional infos.
+#### After that place the model trained with Detectron2 in the `src/python/` folder and run the code as below.
+#### If you want to, you can edit the src/python/MaskRCNN.py file to change the model to be used.
+
 DynaSLAM is a visual SLAM system that is robust in dynamic scenarios for monocular, stereo and RGB-D configurations. Having a static map of the scene allows inpainting the frame background that has been occluded by such dynamic objects.
 
 <img src="imgs/teaser.png" width="900px"/>

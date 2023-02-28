@@ -32,14 +32,15 @@ SegmentDynObject::SegmentDynObject(){
     ImportSettings();
     std::string x;
     setenv("PYTHONPATH", this->py_path.c_str(), 1);
-    x = getenv("PYTHONPATH");
+    x = getenv("PYTHONPATH"); 
     Py_Initialize();
+
     this->cvt = new NDArrayConverter();
     this->py_module = PyImport_ImportModule(this->module_name.c_str());
     assert(this->py_module != NULL);
     this->py_class = PyObject_GetAttrString(this->py_module, this->class_name.c_str());
     assert(this->py_class != NULL);
-    this->net = PyInstance_New(this->py_class, NULL, NULL);
+    this->net = PyObject_CallObject((PyObject*)this->py_class, NULL);
     assert(this->net != NULL);
     std::cout << "Creating net instance..." << std::endl;
     cv::Mat image  = cv::Mat::zeros(480,640,CV_8UC3); //Be careful with size!!
@@ -60,6 +61,7 @@ cv::Mat SegmentDynObject::GetSegmentation(cv::Mat &image,std::string dir, std::s
         PyObject* py_image = cvt->toNDArray(image.clone());
         assert(py_image != NULL);
         PyObject* py_mask_image = PyObject_CallMethod(this->net, const_cast<char*>(this->get_dyn_seg.c_str()),"(O)",py_image);
+        
         seg = cvt->toMat(py_mask_image).clone();
         seg.cv::Mat::convertTo(seg,CV_8U);//0 background y 1 foreground
         if(dir.compare("no_save")!=0){
