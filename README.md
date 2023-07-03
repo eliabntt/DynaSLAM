@@ -8,6 +8,7 @@
 #### Note that we tested this with python3.8 and opencv 2.4.1. Please follow the instructions in the [GRADE_tools](https://github.com/robot-perception-group/GRADE_tools/blob/main/evaluation/DYNASLAM.md) repository for additional infos.
 #### After that place the model trained with Detectron2 in the `src/python/` folder and run the code as below.
 #### If you want to, you can edit the src/python/MaskRCNN.py file to change the model to be used.
+## NOTE: Please use `numpy <= 1.18.0`, otherwise the module won't compile apparently.
 
 DynaSLAM is a visual SLAM system that is robust in dynamic scenarios for monocular, stereo and RGB-D configurations. Having a static map of the scene allows inpainting the frame background that has been occluded by such dynamic objects.
 
