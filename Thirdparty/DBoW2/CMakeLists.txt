@@ -24,7 +24,7 @@ set(SRCS_DUTILS
   DUtils/Random.cpp
   DUtils/Timestamp.cpp)
 
-find_package(OpenCV 2.4.11 EXACT REQUIRED PATHS /home/cxu/opencv-2.4.11/install)
+find_package(OpenCV 2.4.11 EXACT REQUIRED PATHS /home/ebonetto/SLAM_TEST/opencv-2.4.11/install)
 if(NOT OpenCV_FOUND)
    find_package(OpenCV 2.4.3 QUIET)
    if(NOT OpenCV_FOUND)
