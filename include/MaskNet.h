@@ -12,7 +12,7 @@
 #define NULL   ((void *) 0)
 #endif
 
-#include <python2.7/Python.h>
+#include <python3.8/Python.h>
 #include <string>
 #include <stdio.h>
 #include <stdlib.h>
@@ -37,7 +37,7 @@ private:
 	std::string py_path; 	/*!< Path to be included to the environment variable PYTHONPATH */
 	std::string module_name; /*!< Detailed description after the member */
 	std::string class_name; /*!< Detailed description after the member */
-        std::string get_dyn_seg; 	/*!< Detailed description after the member */
+    std::string get_dyn_seg; 	/*!< Detailed description after the member */
 
 	void ImportSettings();
 public:
