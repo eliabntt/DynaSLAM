@@ -33,7 +33,7 @@ endif()
 LIST(APPEND CMAKE_MODULE_PATH ${PROJECT_SOURCE_DIR}/cmake_modules)
 
 message("PROJECT_SOURCE_DIR: " ${OpenCV_DIR})
-find_package(OpenCV 2.4.11 EXACT REQUIRED PATHS /home/cxu/opencv-2.4.11/install)
+find_package(OpenCV 2.4.11 EXACT REQUIRED PATHS /home/ebonetto/SLAM_TEST/opencv-2.4.11/install)
 if(NOT OpenCV_FOUND)
     message("OpenCV > 2.4.11 not found.")
     find_package(OpenCV 3.0 QUIET)
@@ -74,7 +74,7 @@ endif()
 find_package(Eigen3 3.1.0 REQUIRED)
 find_package(Pangolin REQUIRED)
 
-set(PYTHON_INCLUDE_DIRS ${PYTHON_INCLUDE_DIRS}  /home/cxu/.local/lib/python3.8/site-packages/numpy/core/include/numpy) # /usr/local/lib/python2.7/site-packages/numpy/core/include/numpy)
+set(PYTHON_INCLUDE_DIRS ${PYTHON_INCLUDE_DIRS}  /home/ebonetto/.local/lib/python3.8/site-packages/numpy/core/include/numpy) # /usr/local/lib/python2.7/site-packages/numpy/core/include/numpy)
 
 include_directories(
 ${PROJECT_SOURCE_DIR}
@@ -82,7 +82,8 @@ ${PROJECT_SOURCE_DIR}/include
 ${EIGEN3_INCLUDE_DIR}
 ${Pangolin_INCLUDE_DIRS}
 /usr/include/python3.8/
-/home/cxu/.local/lib/python3.8/site-packages/numpy/core/include/numpy/
+/home/ebonetto/.local/lib/python3.8/
+/home/ebonetto/.local/lib/python3.8/site-packages/numpy/core/include/numpy/
 #/home/cxu/detectron/lib/python3.8/site-packages/numpy/core/include/numpy
 #/usr/local/lib/python3.8/dist-packages/numpy/core/include/numpy
 ${Boost_INCLUDE_DIRS}

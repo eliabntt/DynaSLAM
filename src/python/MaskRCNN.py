@@ -141,13 +141,13 @@ class Mask:
         ROOT_DIR = "./src/python"
         print(ROOT_DIR)
 
-        # Path to trained weights file
-        weights_path = os.path.join(ROOT_DIR, "weights.pth")
-
-        cfg = custom_config(1, "dummy","train_dummy", "val_dummy", weights_path)
+        
+        weights_path = os.path.join(ROOT_DIR,"detectron2_models/base_model_detectron_r50_fpn.pkl")
+        cfg = custom_config(80, "dummy","train_dummy", "val_dummy", weights_path)
         from detectron2.data import build_detection_test_loader
         cfg.MODEL.WEIGHTS = weights_path
-        cfg.MODEL.ROI_HEADS.SCORE_THRESH_TEST = 0.7
+        cfg.MODEL.ROI_HEADS.SCORE_THRESH_TEST = 0.9
+        cfg.MODEL.ROI_HEADS.NMS_THRESH_TEST=0.3
         self.predictor = DefaultPredictor(cfg)
         
         self.class_names = [ 'person', 'bicycle', 'car', 'motorcycle', 'airplane',
